@@ -8,7 +8,7 @@ The method is packaged as reusable Claude Code skills in [disparity-kit](https:/
 
 ## Finding
 
-Black women are assaulted at 3,544 per 100,000 residents a year: 2.9 times the rate of Hispanic women (1,240), 5.7 times White women (622), 18.4 times Asian women (193), and more often than the men of any group, Black men (2,894) included. The gap is a higher victimization rate, not population share. After adjusting for age, location, neighborhood and homelessness it is still about 2 times Hispanic or White women's.
+Black women's reported assault rate is 3,544 per 100,000 residents a year: 2.9 times Hispanic women's (1,240), 5.7 times White women's (622), 18.4 times Asian women's (193), and higher than the rate for men in any group, Black men (2,894) included. The gap is a higher victimization rate, not population share. After adjusting for age, location, neighborhood and homelessness it is still about 2 times Hispanic or White women's.
 
 Black women are 56% of Black assault victims, the highest female share of any group (47% to 51% elsewhere), and 65.5% of Black simple-assault victims.
 

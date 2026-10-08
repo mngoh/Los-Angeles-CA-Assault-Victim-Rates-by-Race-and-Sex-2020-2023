@@ -53,7 +53,7 @@ html = f'''<!DOCTYPE html>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Assault victims in Los Angeles</title>
-  <meta name="description" content="Black women in LA are assaulted at 3 to 6 times the rate of Hispanic and White women, and nothing we measured explains why. {fmt(C['total'])} LAPD assault reports, 2020 to 2023, as rates per 100,000 residents." />
+  <meta name="description" content="Black women's reported assault rate in LA is 3 to 6 times Hispanic and White women's, and nothing we measured explains why. {fmt(C['total'])} LAPD assault reports, 2020 to 2023, as rates per 100,000 residents." />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
@@ -129,12 +129,12 @@ html = f'''<!DOCTYPE html>
 
 <div class="container">
 
-  <p class="lede">Black women in LA are assaulted at 3 to 6 times the rate of Hispanic and White women, and nothing we measured explains why.</p>
+  <p class="lede">Black women's reported assault rate in LA is 3 to 6 times Hispanic and White women's, and nothing we measured explains why.</p>
 
   <div class="answer">
     <div class="q">The question</div>
     <p>Black women are a far larger share of assault victims than women of any other group. Is that a higher rate of victimization, or just where assaults happen?</p>
-    <p>A higher rate. Per 100,000 residents a year, Black women are assaulted {fmt(bw["F"])} times: {ratio["Hispanic"]} times the rate of Hispanic women, {ratio["White"]} times White women, {ratio["Asian"]} times Asian women, and more often than the men of any group, Black men included.</p>
+    <p>A higher rate. Per 100,000 residents a year, Black women's reported assault rate is {fmt(bw["F"])}: {ratio["Hispanic"]} times Hispanic women's, {ratio["White"]} times White women's, {ratio["Asian"]} times Asian women's, and higher than the rate for men in any group, Black men included.</p>
     <p>Adjusted for age, year, where the assault happened, neighborhood poverty, income, unemployment, housing and homelessness, the gap is still about {round(M["pairwise"]["Hispanic"]["adjusted"]["rate_ratio"])} times Hispanic or White women and {round(M["pairwise"]["Asian"]["adjusted"]["rate_ratio"])} times Asian women. The model is below.</p>
   </div>
 
@@ -176,7 +176,7 @@ html = f'''<!DOCTYPE html>
   <div class="section-title">Findings</div>
   <div class="findings">
     <div class="finding red"><h4>The rate gap is real</h4><p>Black women's victimization rate is {fmt(bw["F"])} per 100,000 a year. Hispanic women: {fmt(R["Hispanic"]["F"])}. White women: {fmt(R["White"]["F"])}. Asian women: {fmt(R["Asian"]["F"])}. Population share does not explain it.</p></div>
-    <div class="finding red"><h4>More often than men</h4><p>Black women are assaulted at {int(bw["ratio"]*100)}% of the rate of Black men. For Hispanic, White and Asian women the figure is {int(R["Hispanic"]["ratio"]*100)}%, {int(R["White"]["ratio"]*100)}% and {int(R["Asian"]["ratio"]*100)}%.</p></div>
+    <div class="finding red"><h4>More often than men</h4><p>Black women's reported assault rate is {int(bw["ratio"]*100)}% of Black men's. For Hispanic, White and Asian women the figure is {int(R["Hispanic"]["ratio"]*100)}%, {int(R["White"]["ratio"]*100)}% and {int(R["Asian"]["ratio"]*100)}%.</p></div>
     <div class="finding"><h4>Simple assault is where women outnumber men</h4><p>{share_simple["Black"]}% of Black simple-assault victims are women, the highest of any group ({min(share_simple[r] for r in RACES if r != "Black")}% to {max(share_simple[r] for r in RACES if r != "Black")}% elsewhere). In aggravated assault the share is {share_agg["Black"]}%, against {min(share_agg[r] for r in RACES if r != "Black")}% to {max(share_agg[r] for r in RACES if r != "Black")}% for other groups.</p></div>
     <div class="finding"><h4>South LA carries the counts, Central the rate</h4><p>77th Street ({fmt(by_div["77th Street"][3])}) and Southeast ({fmt(by_div["Southeast"][3])}) have the most Black female victims. Central has the highest rate ({fmt(black_div[0][1])}) on a small resident population.</p></div>
     <div class="finding"><h4>Mostly strong-arm</h4><p>{round(strong / C["total"] * 100)}% of all assaults involved hands, fists or feet rather than a weapon. Handguns appear in {fmt(weapons["HAND GUN"])}.</p></div>
@@ -286,7 +286,7 @@ html = f'''<!DOCTYPE html>
   <div class="section-title">Caveats</div>
   <div class="findings">
     <div class="finding red"><h4>What this number measures</h4><p>Police reports, not how often women are hurt. In the national victimization survey, which counts assaults whether or not police learned of them, Black and White women describe being assaulted at about the same rate nationally and about 1.5 to 2 times in large cities. A <a href="https://github.com/mngoh/Police-Records-vs-Survey-Assault-Victims-by-Race-and-Sex-2015-2025">follow-up</a> tested why police records differ more: not reporting rates, not (or only a little) how police write up a call, not the same women counted repeatedly, but largely where assaults happen and who calls. Hospital emergency departments, which do not depend on a call to police, see a gap like the police one (about 4.6 times for women in 2021 to 2022), which points to the survey undercounting assaults on Black women.</p></div>
-    <div class="finding red"><h4>This shows what, not why</h4><p>The data says Black women are assaulted at a higher rate. It does not say why. Nothing here measures causes, offenders or circumstances.</p></div>
+    <div class="finding red"><h4>This shows what, not why</h4><p>The data says Black women's reported assault rate is higher. It does not say why. Nothing here measures causes, offenders or circumstances.</p></div>
     <div class="finding red"><h4>Reported crimes only</h4><p>Every number is a report that reached LAPD. Willingness to report, and police recording practice, differ by group, by area and over time. A higher rate can partly reflect more reporting.</p></div>
     <div class="finding red"><h4>Reports, not people</h4><p>Rates count assault reports. A woman assaulted twice counts twice, which is common in partner violence, so a rate of {fmt(bw["F"])} per 100,000 is not the share of Black women assaulted.</p></div>
     <div class="finding red"><h4>Who is recorded as Black</h4><p>Officers record victim race by sight; the population counts people who are Black alone. LA has {BLACK_COMBO_PCT}% more people who are Black alone or in combination with another race. If multiracial victims are recorded as Black, the rate is overstated by up to that much: at worst {round(ratio["Hispanic"] / BLACK_COMBO, 1)} times Hispanic women and {round(ratio["White"] / BLACK_COMBO, 1)} times White women instead of {ratio["Hispanic"]} and {ratio["White"]}.</p></div>
